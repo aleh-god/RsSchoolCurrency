@@ -4,6 +4,7 @@ import com.bondidos.rsschoolcurrency.R
 import com.bondidos.rsschoolcurrency.domain.models.Currency
 import com.bondidos.rsschoolcurrency.domain.models.CurrencyUi
 
+// Работаешь с ресурсами в названии маппера не отражено.
 class DomainToUiCurrencyMapper : BaseMapper<List<Currency>, List<CurrencyUi>> {
 
     override fun invoke(params: List<Currency>): List<CurrencyUi> =
@@ -16,6 +17,7 @@ class DomainToUiCurrencyMapper : BaseMapper<List<Currency>, List<CurrencyUi>> {
             )
         }
 
+       // Возможно, ресурсы надо перенести в DATA слой.
     companion object {
         private val images: Map<String, Int> = mapOf(
             "USD" to R.drawable.ic_usd_flag,
@@ -90,9 +92,11 @@ class DomainToUiCurrencyMapper : BaseMapper<List<Currency>, List<CurrencyUi>> {
             "BYN" to R.string.currency_byn_name,
         )
 
+        // Нужно ли выделение простого кода в отдельный и приватный метод?
         private fun obtainImageByName(base: String): Int =
             images[base] ?: R.drawable.ic_launcher_foreground
 
+        // Нужно ли выделение простого кода в отдельный и приватный метод?
         private fun obtainDescriptionByName(base: String): Int = strings[base] ?: R.string.unknown
     }
 }
