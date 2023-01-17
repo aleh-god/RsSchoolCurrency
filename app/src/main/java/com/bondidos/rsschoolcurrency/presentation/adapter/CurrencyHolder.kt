@@ -17,6 +17,8 @@ class CurrencyHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
     var item: CurrencyUi? = null
 
+    // А откуда такое изобретение? Вроде прикольное, но персиком чую, что это кастыль. Есть binding, все кроме него - ненужное усложнение.
+    // Вроде как получешь биндинг извне и отдаешь назад ссылки на вьюхи, здесь в коде не используешь. Зачем этот крюк? Холдить ссылки? Так их биндинг уже холдит.
     val image: ImageView = binding.currencyImage
     val abrName: MaterialTextView = binding.currencyBaseName
     val name: MaterialTextView = binding.currencyName
