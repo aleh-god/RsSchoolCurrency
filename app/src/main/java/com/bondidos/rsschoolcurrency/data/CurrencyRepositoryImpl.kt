@@ -7,8 +7,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
-class CurrencyRepositoryImpl @Inject constructor(private val currencyService: CurrencyService) :
-    CurrencyRepository {
+class CurrencyRepositoryImpl @Inject constructor(
+    private val currencyService: CurrencyService
+) : CurrencyRepository { // Так будет красивее. Параметры конструкторов и методов начинаются с новой строки, если не влазят по длине
     override fun fetchAllCurrencies(): Flow<List<Currency>> {
         return flow {
             while (true) {
